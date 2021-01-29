@@ -10,6 +10,10 @@
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <style>
+        body {
+            background-color: #fff;
+        }
+
         .container {
             max-width: 500px;
         }
@@ -18,26 +22,24 @@
 <body>
     <div class="container mt-5">
         <div class="card card-body">
-            <h5>Essa causa precisa da sua ajuda!</h5>
-            <hr>
             <div class="row">
                 <div class="col-4">
-                    <a href="#" class="btn btn-outline-primary btn-block pt-3 pb-3 mb-2">R$ 10,00</a>
+                    <a href="#" class="btn btn-outline-primary btn-amount btn-block pt-3 pb-3 mb-2">R$ 10,00</a>
                 </div>
                 <div class="col-4">
-                    <a href="#" class="btn btn-outline-primary btn-block pt-3 pb-3 mb-2">R$ 20,00</a>
+                    <a href="#" class="btn btn-outline-primary btn-amount btn-block pt-3 pb-3 mb-2">R$ 20,00</a>
                 </div>
                 <div class="col-4">
-                    <a href="#" class="btn btn-outline-primary btn-block pt-3 pb-3 mb-2">R$ 30,00</a>
+                    <a href="#" class="btn btn-outline-primary btn-amount btn-block pt-3 pb-3 mb-2">R$ 30,00</a>
                 </div>
                 <div class="col-4">
-                    <a href="#" class="btn btn-outline-primary btn-block pt-3 pb-3 mb-2">R$ 50,00</a>
+                    <a href="#" class="btn btn-outline-primary btn-amount btn-block pt-3 pb-3 mb-2">R$ 50,00</a>
                 </div>
                 <div class="col-4">
-                    <a href="#" class="btn btn-outline-primary btn-block pt-3 pb-3 mb-2">R$ 100,00</a>
+                    <a href="#" class="btn btn-outline-primary btn-amount btn-block pt-3 pb-3 mb-2">R$ 100,00</a>
                 </div>
                 <div class="col-4">
-                    <a href="#" class="btn btn-outline-primary btn-block pt-3 pb-3 mb-2">R$ 200,00</a>
+                    <a href="#" class="btn btn-outline-primary btn-amount btn-block pt-3 pb-3 mb-2">R$ 200,00</a>
                 </div>
                 <div class="col-12">
                     <label><strong class="text-primary">Ou digite um valor</strong></label>
@@ -49,5 +51,22 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let amount_buttons = document.querySelectorAll('.btn-amount');
+            amount_buttons.forEach((item) => {
+               item.addEventListener('click', () => {
+                   amount_buttons.forEach((el) => {
+                       el.classList.remove('btn-primary');
+                       el.classList.add('btn-outline-primary');
+                   });
+
+                   item.classList.add('btn-primary');
+                   item.classList.remove('btn-outline-primary');
+               });
+            });
+        });
+    </script>
 </body>
 </html>
