@@ -17,151 +17,135 @@
         .container {
             max-width: 500px;
         }
+
+        .pac-container {
+            margin-top: -50px !important;
+        }
     </style>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWRdf5oM7bMEn3Ze_LC_j_xLf9131A0KQ&callback=initAutocomplete&libraries=places&v=weekly"
+            defer
+    ></script>
+    <script src="{% static 'js/searchbox.js' %}"></script>
 </head>
 <body>
-    <div class="container mt-5">
-        <div class="card card-body" id="wizard-1">
-            <div class="row">
-                <div class="col-4">
-                    <a href="#" class="btn btn-outline-primary btn-amount btn-block pt-3 pb-3 mb-2">R$ 10</a>
-                </div>
-                <div class="col-4">
-                    <a href="#" class="btn btn-outline-primary btn-amount btn-block pt-3 pb-3 mb-2">R$ 20</a>
-                </div>
-                <div class="col-4">
-                    <a href="#" class="btn btn-outline-primary btn-amount btn-block pt-3 pb-3 mb-2">R$ 30</a>
-                </div>
-                <div class="col-4">
-                    <a href="#" class="btn btn-outline-primary btn-amount btn-block pt-3 pb-3 mb-2">R$ 50</a>
-                </div>
-                <div class="col-4">
-                    <a href="#" class="btn btn-outline-primary btn-amount btn-block pt-3 pb-3 mb-2">R$ 100</a>
-                </div>
-                <div class="col-4">
-                    <a href="#" class="btn btn-outline-primary btn-amount btn-block pt-3 pb-3 mb-2">R$ 200</a>
-                </div>
-                <div class="col-12">
-                    <label><strong class="text-primary">Ou digite um valor</strong></label>
-                    <input type="number" class="form-control" placeholder="Digite apenas números">
-                </div>
-                <div class="col-12 mt-3">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" name="accept">
-                      <label class="form-check-label" for="accept">
-                        Eu concordo em doar o valor informado acima por mês. Estou ciente dos Termos de Uso
-                                        desse formulário, entendendo que posso cancelar minha doação
-                                        recorrente a qualquer momento pelo portal do doador.
-                      </label>
-                    </div>
-
-                </div>
-                <div class="col-12">
-                    <a href="#" class="btn btn-primary btn-block btn-lg mt-3" id="next-1">Próximo &raquo;</a>
-                </div>
+<form class="container mt-5" autocomplete="off">
+    <div class="card card-body" id="wizard-1">
+        <div class="row">
+            <div class="col-4">
+                <a href="#" class="btn btn-outline-primary btn-amount btn-block pt-3 pb-3 mb-2">R$ 10</a>
             </div>
-        </div>
+            <div class="col-4">
+                <a href="#" class="btn btn-outline-primary btn-amount btn-block pt-3 pb-3 mb-2">R$ 20</a>
+            </div>
+            <div class="col-4">
+                <a href="#" class="btn btn-outline-primary btn-amount btn-block pt-3 pb-3 mb-2">R$ 30</a>
+            </div>
+            <div class="col-4">
+                <a href="#" class="btn btn-outline-primary btn-amount btn-block pt-3 pb-3 mb-2">R$ 50</a>
+            </div>
+            <div class="col-4">
+                <a href="#" class="btn btn-outline-primary btn-amount btn-block pt-3 pb-3 mb-2">R$ 100</a>
+            </div>
+            <div class="col-4">
+                <a href="#" class="btn btn-outline-primary btn-amount btn-block pt-3 pb-3 mb-2">R$ 200</a>
+            </div>
+            <div class="col-12">
+                <label><strong class="text-primary">Ou digite um valor</strong></label>
+                <input type="number" class="form-control" placeholder="Digite apenas números">
+            </div>
+            <div class="col-12 mt-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="accept">
+                    <label class="form-check-label" for="accept">
+                        Eu concordo em doar o valor informado acima por mês. Estou ciente dos Termos de Uso
+                        desse formulário, entendendo que posso cancelar minha doação
+                        recorrente a qualquer momento pelo portal do doador.
+                    </label>
+                </div>
 
-        <div class="card card-body d-none" id="wizard-2">
-            <div class="row">
-                <div class="col-12 mb-3">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" name="anonymous_donation" id="anonymous_donation">
-                      <label class="form-check-label" for="anonymous_donation"> Marcar como doação anônima</label>
-                    </div>
-                    <div class="form-check hide-on-anon">
-                      <input class="form-check-input" type="checkbox" name="company_donation" id="company_donation">
-                      <label class="form-check-label" for="company_donation"> Doação em nome de empresa</label>
-                    </div>
-                </div>
-                <div class="col-12 hide-on-anon">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="name" placeholder="Digite o seu nome">
-                    </div>
-                </div>
-                <div class="col-12 hide-on-anon">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Digite o seu email">
-                    </div>
-                </div>
-                <div class="col-12 hide-on-anon">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Digite o seu telefones">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <a href="#" class="btn btn-primary btn-block btn-lg mt-3" id="prev-1">&laquo; Anterior</a>
-                </div>
-                <div class="col-md-6">
-                    <a href="#" class="btn btn-primary btn-block btn-lg mt-3" id="next-2">Próximo &raquo;</a>
-                </div>
+            </div>
+            <div class="col-12">
+                <a href="#" class="btn btn-primary btn-block btn-lg mt-3" id="next-1">Próximo &raquo;</a>
             </div>
         </div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const amount_buttons = document.querySelectorAll('.btn-amount');
-            amount_buttons.forEach((item) => {
-               item.addEventListener('click', () => {
-                   amount_buttons.forEach((el) => {
-                       el.classList.remove('btn-primary');
-                       el.classList.add('btn-outline-primary');
-                   });
+    <div class="card card-body d-none" id="wizard-2">
+        <div class="row">
+            <div class="col-12 mb-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="anonymous_donation" id="anonymous_donation">
+                    <label class="form-check-label" for="anonymous_donation"> Marcar como doação anônima</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="company_donation" id="company_donation">
+                    <label class="form-check-label" for="company_donation"> Doação em nome de empresa</label>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="name"><small><strong id="name-label">Nome</strong></small></label>
+                    <input type="text" class="form-control" id="name" placeholder="Digite o seu nome">
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="email"><small><strong>Email</strong></small></label>
+                    <input type="text" class="form-control" id="email" placeholder="Digite o seu email">
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="phone"><small><strong>Telefone</strong></small></label>
+                    <input type="text" class="form-control" id="phone" placeholder="Digite o seu telefones">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <a href="#" class="btn btn-primary btn-block btn-lg mt-3" id="prev-1">&laquo; Anterior</a>
+            </div>
+            <div class="col-md-6">
+                <a href="#" class="btn btn-primary btn-block btn-lg mt-3" id="next-2">Próximo &raquo;</a>
+            </div>
+        </div>
+    </div>
 
-                   item.classList.add('btn-primary');
-                   item.classList.remove('btn-outline-primary');
-               });
-            });
+    <div id="wizard-3" class="card card-body d-none">
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="document"><small><strong id="document-label">CPF</strong></small></label>
+                    <input type="text" id="document" placeholder="Digite o seu CPF" class="form-control">
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="birth_date"><small><strong>Data de nascimento</strong></small></label>
+                    <input type="date" id="birth_date" placeholder="Data de nascimento" class="form-control">
+                </div>
+            </div>
+            <div class="col-12">
+                <label for="autocomplete"><small><strong>Endereço</strong></small></label>
+                <input id="autocomplete" placeholder="Pesquise o seu endereço" autocomplete="off" class="form-control" onFocus="geolocate()" type="text">
+                <input type="hidden" class="field" id="street_number">
+                <input type="hidden" class="field" id="route">
+                <input type="hidden" class="field" id="locality">
+                <input type="hidden" class="field" id="administrative_area_level_1">
+                <input type="hidden" class="field" id="postal_code">
+                <input type="hidden" class="field" id="country">
+            </div>
+            <div class="col-md-6">
+                <a href="#" class="btn btn-primary btn-block btn-lg mt-3" id="prev-2">&laquo; Anterior</a>
+            </div>
+            <div class="col-md-6">
+                <a href="#" class="btn btn-primary btn-block btn-lg mt-3" id="finish">Finalizar &raquo;</a>
+            </div>
+        </div>
+    </div>
 
-            // Wizard elements
-            const next_1 = document.querySelector('#next-1');
-            const prev_1 = document.querySelector('#prev-1');
-            const wizard_1 = document.querySelector('#wizard-1');
-            const wizard_2 = document.querySelector('#wizard-2');
-
-            // Wizard events
-            next_1.addEventListener('click', () => {
-                wizard_1.classList.add('d-none');
-                wizard_2.classList.remove('d-none');
-            })
-
-            prev_1.addEventListener('click', () => {
-                wizard_1.classList.remove('d-none');
-                wizard_2.classList.add('d-none');
-            });
-
-            // Form fields
-            const name = document.querySelector('#name');
-            const company_donation = document.querySelector('#company_donation');
-
-            // Form events
-            company_donation.addEventListener('change', (event) => {
-                if (event.target.checked) {
-                    name.placeholder = 'Digite o nome da empresa doadora';
-                }
-                else {
-                    name.placeholder = 'Digite o seu nome'
-                }
-            });
-
-            const anonymous_donation = document.querySelector('#anonymous_donation');
-
-            anonymous_donation.addEventListener('change', (event) => {
-                const hide_on_anon_elements = document.querySelectorAll('.hide-on-anon');
-
-                if (event.target.checked) {
-                    hide_on_anon_elements.forEach((el) => {
-                        el.classList.add('d-none');
-                    });
-                }
-                else {
-                    hide_on_anon_elements.forEach((el) => {
-                        el.classList.remove('d-none');
-                    });
-                }
-            });
-        });
-    </script>
+    <script src="{% static 'js/embed.js' %}"></script>
+</form>
 </body>
 </html>
