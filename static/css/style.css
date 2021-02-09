@@ -21559,7 +21559,7 @@ input[type="checkbox"]:checked:after {
   margin-top: 3px; }
 
 .form-check-inline .form-check-input {
-  margin-right: 0.625rem; }
+  margin-right: 0; }
 
 .custom-control-label:before, .custom-control-label:after {
   top: -0.125rem;

@@ -66,4 +66,17 @@ document.addEventListener('DOMContentLoaded', () => {
             doc.placeholder = 'Digite o seu CPF';
         }
     });
+
+    // Payment Method
+    const payment_methods = document.querySelectorAll('input[name=payment_method]');
+    const card_form = document.querySelector('#card-form');
+    payment_methods.forEach((el) => {
+        el.addEventListener('change', (event) => {
+            if (event.target.value == 'card') {
+                card_form.classList.remove('d-none');
+            } else {
+                card_form.classList.add('d-none');
+            }
+        });
+    });
 });
