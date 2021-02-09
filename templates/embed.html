@@ -3,11 +3,11 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Donation</title>
 
+    <link rel="stylesheet" href="{% static 'js/cardjs/card-js.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <style>
         body {
@@ -22,13 +22,6 @@
             margin-top: -50px !important;
         }
     </style>
-
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWRdf5oM7bMEn3Ze_LC_j_xLf9131A0KQ&callback=initAutocomplete&libraries=places&v=weekly"
-            defer
-    ></script>
-    <script src="{% static 'js/searchbox.js' %}"></script>
 </head>
 <body>
 <form class="container mt-5" autocomplete="off">
@@ -127,14 +120,36 @@
                 </div>
             </div>
             <div class="col-12">
-                <label for="autocomplete"><small><strong>Endereço</strong></small></label>
-                <input id="autocomplete" placeholder="Pesquise o seu endereço" autocomplete="off" class="form-control" onFocus="geolocate()" type="text">
-                <input type="hidden" class="field" id="street_number">
-                <input type="hidden" class="field" id="route">
-                <input type="hidden" class="field" id="locality">
-                <input type="hidden" class="field" id="administrative_area_level_1">
-                <input type="hidden" class="field" id="postal_code">
-                <input type="hidden" class="field" id="country">
+                <div class="form-group">
+                    <label for="autocomplete"><small><strong>Endereço</strong></small></label>
+                    <input id="autocomplete" placeholder="Pesquise o seu endereço" autocomplete="off" class="form-control" onFocus="geolocate()" type="text">
+                    <input type="hidden" class="field" id="street_number">
+                    <input type="hidden" class="field" id="route">
+                    <input type="hidden" class="field" id="locality">
+                    <input type="hidden" class="field" id="administrative_area_level_1">
+                    <input type="hidden" class="field" id="postal_code">
+                    <input type="hidden" class="field" id="country">
+                </div>
+            </div>
+            <div class="col-12">
+                <label for="card-number"><small><strong>Dados do cartão</strong></small></label>
+                <div class="card-js">
+                    <div class="form-group">
+                        <input class="card-number form-control" name="card-number" id="card-number" placeholder="Número">
+                    </div>
+                    <div class="form-group">
+                        <input class="name" id="the-card-name-id" name="card-holders-name" placeholder="Titular">
+                    </div>
+                    <div class="form-group">
+                        <input class="expiry-month" name="expiry-month">
+                    </div>
+                    <div class="form-group">
+                        <input class="expiry-year" name="expiry-year">
+                    </div>
+                    <div class="form-group">
+                        <input class="cvc" name="cvc" placeholder="CVC">
+                    </div>
+                </div>
             </div>
             <div class="col-md-6">
                 <a href="#" class="btn btn-primary btn-block btn-lg mt-3" id="prev-2">&laquo; Anterior</a>
@@ -145,6 +160,11 @@
         </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.js" integrity="sha256-DrT5NfxfbHvMHux31Lkhxg42LY6of8TaYyK50jnxRnM=" crossorigin="anonymous"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWRdf5oM7bMEn3Ze_LC_j_xLf9131A0KQ&callback=initAutocomplete&libraries=places&v=weekly" defer></script>
+    <script src="{% static 'js/cardjs/card-js.min.js' %}"></script>
+    <script src="{% static 'js/searchbox.js' %}"></script>
     <script src="{% static 'js/embed.js' %}"></script>
 </form>
 </body>
