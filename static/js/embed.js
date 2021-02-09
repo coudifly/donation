@@ -1,4 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const phone = document.querySelector("#phone");
+    window.intlTelInput(phone, {
+        initialCountry: "auto",
+        geoIpLookup: function (success, failure) {
+            $.get("https://ipinfo.io", function () {
+            }, "jsonp").always(function (resp) {
+                var countryCode = (resp && resp.country) ? resp.country : "br";
+                success(countryCode);
+            });
+        },
+    });
+
     const amount_buttons = document.querySelectorAll('.btn-amount');
     amount_buttons.forEach((item) => {
         item.addEventListener('click', () => {
